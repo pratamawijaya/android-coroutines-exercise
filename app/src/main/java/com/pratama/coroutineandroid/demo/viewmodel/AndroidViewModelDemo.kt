@@ -25,7 +25,7 @@ class AndroidViewModelDemo : BaseFragmentBinding<FragmentAndroidViewmodelBinding
 
         viewModel.elapsedTime.observe(viewLifecycleOwner, {
             Log.d("debug", "elapsed time : $it")
-            binding.tvCounter.text = "$it"
+            binding.tvCounter.text = if (it == 0L) "" else "$it"
         })
 
         viewModel.isTrackingTime.observe(viewLifecycleOwner, {

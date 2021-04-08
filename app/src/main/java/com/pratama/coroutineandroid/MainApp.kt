@@ -22,5 +22,5 @@ class MainApp : BaseFragmentBinding<FragmentMainAppBinding>() {
 }
 
 fun getCurrentThread(log: String = "") {
-    Log.d("debug", "$log : ${Thread.currentThread().name}")
+    Log.d("debug", "$log : running with -> ${Thread.currentThread().name}")
 }
