@@ -1,0 +1,21 @@
+<?xml version="1.0" encoding="utf-8"?>
+<navigation xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:id="@+id/nav_graph"
+    app:startDestination="@id/mainApp">
+
+    <fragment
+        android:id="@+id/mainApp"
+        android:name="com.pratama.coroutineandroid.MainApp">
+        <action
+            android:id="@+id/action_mainApp_to_androidViewModelDemo"
+            app:destination="@id/androidViewModelDemo" />
+    </fragment>
+
+    <fragment
+        android:id="@+id/androidViewModelDemo"
+        android:name="com.pratama.coroutineandroid.demo.viewmodel.AndroidViewModelDemo"
+        android:label="AndroidViewModelDemo" />
+
+
+</navigation>

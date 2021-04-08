@@ -1,11 +1,16 @@
 package com.pratama.coroutineandroid
 
-import androidx.appcompat.app.AppCompatActivity
-import android.os.Bundle
+import android.view.LayoutInflater
+import com.pratama.coroutineandroid.base.BaseActivityBinding
+import com.pratama.coroutineandroid.databinding.ActivityMainBinding
 
-class MainActivity : AppCompatActivity() {
-    override fun onCreate(savedInstanceState: Bundle?) {
-        super.onCreate(savedInstanceState)
-        setContentView(R.layout.activity_main)
+class MainActivity : BaseActivityBinding<ActivityMainBinding>() {
+
+    override val bindingInflater: (LayoutInflater) -> ActivityMainBinding
+        get() = ActivityMainBinding::inflate
+
+    override fun setupView(binding: ActivityMainBinding) {
+
     }
+
 }
