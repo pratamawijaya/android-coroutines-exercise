@@ -1,5 +1,6 @@
 package com.pratama.coroutineandroid
 
+import android.util.Log
 import android.view.LayoutInflater
 import android.view.ViewGroup
 import androidx.navigation.fragment.findNavController
@@ -18,4 +19,8 @@ class MainApp : BaseFragmentBinding<FragmentMainAppBinding>() {
             }
         }
     }
+}
+
+fun getCurrentThread(log: String = "") {
+    Log.d("debug", "$log : ${Thread.currentThread().name}")
 }

@@ -4,14 +4,10 @@ import androidx.lifecycle.LiveData
 import androidx.lifecycle.MutableLiveData
 import androidx.lifecycle.ViewModel
 import androidx.lifecycle.viewModelScope
-import kotlinx.coroutines.CoroutineScope
-import kotlinx.coroutines.Dispatchers
-import kotlinx.coroutines.delay
-import kotlinx.coroutines.launch
+import com.pratama.coroutineandroid.getCurrentThread
+import kotlinx.coroutines.*
 
 class MyViewModel : ViewModel() {
-
-    private val coroutineScope = CoroutineScope(Dispatchers.Default)
 
     private val _elapsedTime = MutableLiveData<Long>()
     val elapsedTime: LiveData<Long> = _elapsedTime
@@ -30,12 +26,15 @@ class MyViewModel : ViewModel() {
     }
 
     private fun stopTracking() {
+        getCurrentThread("stop tracking")
         _isTrackingTime.postValue(false)
+        _elapsedTime.postValue(0)
+        viewModelScope.coroutineContext.cancelChildren()
     }
 
-    private fun startTracking() = viewModelScope.launch {
+    private fun startTracking() = viewModelScope.launch(Dispatchers.Main) {
         _isTrackingTime.postValue(true)
-
+        getCurrentThread("start tracking")
         val startTimeNano = System.nanoTime()
         while (true) {
             val elapsedTime = (System.nanoTime() - startTimeNano) / 1_000_000_000L
