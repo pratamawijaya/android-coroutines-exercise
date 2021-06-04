@@ -1,4 +1,4 @@
-package com.pratama.coroutineandroid.demo.structuredconcurency.kotlin
+package com.pratama.coroutineandroid.demo.structuredconcurency.fibo.kotlin
 
 import kotlinx.coroutines.runBlocking
 import org.junit.Assert.assertEquals

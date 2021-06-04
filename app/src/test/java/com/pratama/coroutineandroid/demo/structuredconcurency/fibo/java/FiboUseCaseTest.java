@@ -1,4 +1,4 @@
-package com.pratama.coroutineandroid.demo.structuredconcurency.java;
+package com.pratama.coroutineandroid.demo.structuredconcurency.fibo.java;
 
 import org.hamcrest.MatcherAssert;
 import org.junit.Before;
